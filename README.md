@@ -1,5 +1,5 @@
 # Fitness Tracker Application
-Demo: https://fitness-backend.herokuapp.com
+<p>Demo: https://fitness-backend.herokuapp.com</p>
 This application allows for users to track their fitness journey by logging:
 <ul>
 <li>Weight Training Sessions</li>
