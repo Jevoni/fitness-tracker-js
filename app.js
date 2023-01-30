@@ -32,4 +32,4 @@ app.get('/', (req, res) => {
 // mongoose.set('strictQuery', true)
 // mongoose.connect('', console.log('Connected to DB!'))
 
-app.listen(8000)
+app.listen(process.env.PORT || 8000)
