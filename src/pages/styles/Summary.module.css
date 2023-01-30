@@ -1,0 +1,17 @@
+.content-container {
+    width: 95%;
+}
+
+.title {
+    font-size: 23px;
+    font-weight: 350;
+    text-align: center;
+    padding-top: 5px;
+    width: 100%;
+}
+
+@media screen and (max-width:600px) {
+    .title {
+        font-size: 20px;
+    }
+}

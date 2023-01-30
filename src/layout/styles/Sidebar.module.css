@@ -1,0 +1,32 @@
+.sidebar {
+    width: 15%;
+    min-height: 95vh;
+    background-color: #dbc3e4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0px;
+    align-items: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    .sidebar {
+        position: fixed;
+        bottom: 0;
+        flex-direction: row;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .button-container {
+        flex-direction: row;
+        width: 100%;
+    }
+}
