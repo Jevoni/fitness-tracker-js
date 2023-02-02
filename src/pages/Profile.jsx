@@ -23,17 +23,17 @@ const Profile = () => {
     const [edit, setEdit] = useState(null)
 
     const getProfileDetails = async () => {
-        const response = await fetch('http://127.0.0.1:8000/api/profile/', {
+        const response = await fetch('http://127.0.0.1:8000/user/profile/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
         })
         const data = await response.json()
         setProfile(data)
-        setFirstName(profileRef.current?.first_name)
-        setLastName(profileRef.current?.last_name)
+        setFirstName(profileRef.current?.firstName)
+        setLastName(profileRef.current?.lastName)
         setEmail(profileRef.current?.email)
         console.log(profileRef.current)
     }
@@ -50,12 +50,12 @@ const Profile = () => {
             <Body>
                 <Box className={styles.content}>
                     <Box className={`${styles['signup-container']}`}>
-                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '70%', height: '85%', alignItems: 'center', }}>
-                            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '30%', width: '100%', marginBottom: '30px' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', width: '70%', height: '85%', alignItems: 'center', justifyContent: 'center' }}>
+                            {/* <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '30%', width: '100%', marginBottom: '30px' }}>
                                 <Box sx={{ height: '100%', width: '20%', backgroundColor: '#dbc3e4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid black' }}>
                                     <Box component='img' src={DefaultUserPic} height='20px' />
                                 </Box>
-                            </Box>
+                            </Box> */}
                             <Box style={{ display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
                                 <div className={styles.inputbox}>
                                     <label for="firstName">First Name: </label>
@@ -63,7 +63,7 @@ const Profile = () => {
                                         readOnly
                                         name='firstName'
                                         type='text'
-                                        value={profileRef.current?.first_name}
+                                        value={profileRef.current?.firstName}
                                         style={{ height: '35px', fontSize: '15px', marginBottom: '2px', width: '60%' }}
                                     />
                                 </div>
@@ -73,7 +73,7 @@ const Profile = () => {
                                         readOnly
                                         name='lastName'
                                         type='text'
-                                        value={profileRef.current?.last_name}
+                                        value={profileRef.current?.lastName}
                                         style={{ height: '35px', fontSize: '15px', marginBottom: '2px', marginTop: '2px', width: '60%' }}
                                     />
                                 </div>

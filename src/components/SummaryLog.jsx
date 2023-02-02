@@ -13,7 +13,7 @@ const SummaryLog = ({ workoutLog, type }) => {
             <Box className={styles['workout-log']}>
                 <CiDumbbell size={25} className={styles.icon} />
                 <Box className={styles['content-container']}>
-                    <Typography><span>Date: </span>{workoutLog.date}</Typography>
+                    <Typography><span>Date: </span>{workoutLog.date?.split('T')[0]}</Typography>
                     <Typography><span>Workout: </span>{workoutLog.name}</Typography>
                     <Typography className={styles.numbers}>Reps: {workoutLog.reps}</Typography>
                     <Typography className={styles.numbers}>Sets: {workoutLog.sets}</Typography>
@@ -26,7 +26,7 @@ const SummaryLog = ({ workoutLog, type }) => {
             <Box className={styles['workout-log']}>
                 <BiRun size={25} className={styles.icon} />
                 <Box className={`${styles['content-container']} ${styles.secondary}`}>
-                    <Typography><span>Date: </span>{workoutLog.date}</Typography>
+                    <Typography><span>Date: </span>{workoutLog.date?.split('T')[0]}</Typography>
                     <Typography><span>Workout: </span>{workoutLog.name}</Typography>
                     <Typography><span>Duration: </span>{workoutLog.duration}</Typography>
                 </Box>
@@ -38,7 +38,7 @@ const SummaryLog = ({ workoutLog, type }) => {
             <Box className={styles['workout-log']}>
                 <CgPill size={25} className={styles.icon} />
                 <Box className={`${styles['content-container']} ${styles.secondary}`}>
-                    <Typography><span>Date: </span>{workoutLog.date}</Typography>
+                    <Typography><span>Date: </span>{workoutLog.date?.split('T')[0]}</Typography>
                     <Typography><span>Supplement: </span>{workoutLog.name}</Typography>
                     <Typography><span>Dossage: </span>{workoutLog.dossage}</Typography>
                 </Box>

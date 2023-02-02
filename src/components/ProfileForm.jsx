@@ -16,21 +16,23 @@ const ProfileForm = ({ firstName, lastName, email, setEdit, getProfileDetails })
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://127.0.0.1:8000/api/profile/', {
+        const response = await fetch('http://127.0.0.1:8000/user/profile/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
             body: JSON.stringify({
-                'first_name': newFirst,
-                'last_name': newLast,
+                'firstName': newFirst,
+                'lastName': newLast,
                 'email': newMail,
             })
         })
+        const data = response
         alert('Changes Submitted!')
-        setEdit(false)
         getProfileDetails()
+        console.log('Submit Handled')
+        setEdit(false)
     }
 
     useEffect(() => {
@@ -46,42 +48,43 @@ const ProfileForm = ({ firstName, lastName, email, setEdit, getProfileDetails })
             <Box className={styles.content}>
                 <Box className={`${styles['signup-container']}`}>
                     <form onSubmit={onSubmitHandler} className={`${styles['signup-container']}form`}>
-                        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '30%', width: '100%', marginBottom: '30px' }}>
+                        {/* <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '30%', width: '100%', marginBottom: '30px' }}>
                             <Box sx={{ height: '100%', width: '20%', backgroundColor: '#dbc3e4', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '1px solid black' }}>
                                 <Box component='img' src={DefaultUserPic} height='50%' />
                             </Box>
-                        </Box>
-                        <Box style={{ display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
-                                <label for="firstName">First Name: </label>
-                                <input
-                                    type='text'
-                                    value={newFirst}
-                                    onChange={(e) => setNewFirst(e.target.value)}
-                                    style={{ height: '35px', fontSize: '15px', marginBottom: '2px', width: '60%' }}
-                                />
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
-                                <label for="lastName">Last Name: </label>
-                                <input
-                                    type='text'
-                                    value={newLast}
-                                    placeholder
-                                    onChange={(e) => setNewLast(e.target.value)}
-                                    style={{ height: '35px', fontSize: '15px', marginBottom: '2px', marginTop: '2px', width: '60%' }}
-                                />
-                            </div>
-                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
-                                <label for="email">Email: </label>
-                                <input
-                                    type='email'
-                                    name='email'
-                                    value={newMail}
-                                    onChange={(e) => setNewMail(e.target.value)}
-                                    style={{ height: '35px', fontSize: '15px', marginBottom: '2px', marginTop: '2px', width: '60%' }}
-                                />
-                            </div>
-                            {/* <input
+                        </Box> */}
+                        <Box width='100%' display='flex' flexDirection='column' justifyContent='center' height='100%'>
+                            <Box style={{ display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
+                                    <label for="firstName">First Name: </label>
+                                    <input
+                                        type='text'
+                                        value={newFirst}
+                                        onChange={(e) => setNewFirst(e.target.value)}
+                                        style={{ height: '35px', fontSize: '15px', marginBottom: '2px', width: '60%' }}
+                                    />
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
+                                    <label for="lastName">Last Name: </label>
+                                    <input
+                                        type='text'
+                                        value={newLast}
+                                        placeholder
+                                        onChange={(e) => setNewLast(e.target.value)}
+                                        style={{ height: '35px', fontSize: '15px', marginBottom: '2px', marginTop: '2px', width: '60%' }}
+                                    />
+                                </div>
+                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '50%' }}>
+                                    <label for="email">Email: </label>
+                                    <input
+                                        type='email'
+                                        name='email'
+                                        value={newMail}
+                                        onChange={(e) => setNewMail(e.target.value)}
+                                        style={{ height: '35px', fontSize: '15px', marginBottom: '2px', marginTop: '2px', width: '60%' }}
+                                    />
+                                </div>
+                                {/* <input
                             type='password'
                             name='password'
                             value={password}
@@ -96,10 +99,11 @@ const ProfileForm = ({ firstName, lastName, email, setEdit, getProfileDetails })
                             autoComplete='new-password'
                             onChange={(e) => setConfirmPassword(e.target.value)}
                             style={{ height: '35px', fontSize: '15px', marginTop: '2px' }} /> */}
-                        </Box>
-                        <Box className={`${styles['button-container']}`} sx={{ display: 'flex', justifyContent: 'center' }}>
-                            <Button variant='filled' type="submit" className={`${styles['button-add']}`}>Confirm</Button>
-                            <Button className={`${styles['login-container']} ${styles['button-cancel']}`} onClick={() => setEdit(false)}>Cancel</Button>
+                            </Box>
+                            <Box className={`${styles['button-container']}`} sx={{ display: 'flex', justifyContent: 'center' }}>
+                                <Button variant='filled' type="submit" className={`${styles['button-add']}`}>Confirm</Button>
+                                <Button className={`${styles['login-container']} ${styles['button-cancel']}`} onClick={() => setEdit(false)}>Cancel</Button>
+                            </Box>
                         </Box>
                     </form>
                 </Box>

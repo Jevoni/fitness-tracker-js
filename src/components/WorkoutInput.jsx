@@ -14,11 +14,11 @@ const WorkoutInput = ({ setTotalWorkouts }) => {
     const onSubmitHandler = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+        const response = await fetch('http://127.0.0.1:8000/weight/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
             body: JSON.stringify({
                 'date': date,
@@ -35,11 +35,11 @@ const WorkoutInput = ({ setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+            const response = await fetch('http://127.0.0.1:8000/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()

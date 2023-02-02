@@ -18,26 +18,32 @@ const SignUp = () => {
     const signUpHandler = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://127.0.0.1:8000/api/register/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                'first_name': firstName,
-                'last_name': lastName,
-                'email': email,
-                'password1': password,
-                'password2': confirmPassword,
+        if (password === confirmPassword) {
+            const response = await fetch('http://127.0.0.1:8000/user/signup/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    'firstName': firstName,
+                    'lastName': lastName,
+                    'email': email,
+                    'password': password,
+                })
             })
-        })
 
-        if (response.status === 200) {
-            alert('User created')
-            navigate('/')
+            if (response.status === 200) {
+                alert('User created')
+                navigate('/')
+            }
+
+            console.log(response.status)
+        } else if (password !== confirmPassword) {
+            alert('Passwords do not match!')
+        } else {
+            alert('Something went wrong!')
         }
 
-        console.log(response.status)
         // console.log('useEffect (SignUp)')
     }
 

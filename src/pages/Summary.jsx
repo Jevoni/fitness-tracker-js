@@ -16,32 +16,31 @@ const Summary = () => {
 
     useEffect(() => {
         const getLogs = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+            const response = await fetch('http://127.0.0.1:8000/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
-
             const data = await response.json()
             setTotalWeight(data)
-            // setResponse(response)
-            const response2 = await fetch('http://127.0.0.1:8000/api/cardio/', {
+
+            const response2 = await fetch('http://127.0.0.1:8000/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data2 = await response2.json()
             setTotalCardio(data2)
 
-            const response3 = await fetch('http://127.0.0.1:8000/api/supplement/', {
+            const response3 = await fetch('http://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data3 = await response3.json()
@@ -58,7 +57,7 @@ const Summary = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column-reverse' }}>
                     {totalWeight?.slice(totalWeight.length - 3, totalWeight.length)?.map((workoutLog) =>
                         <SummaryLog
-                            key={workoutLog.id}
+                            key={workoutLog._id}
                             workoutLog={workoutLog}
                             setTotalWorkouts={setTotalWeight}
                             type='weight'
@@ -68,9 +67,9 @@ const Summary = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column-reverse', marginTop: '40px' }}>
                     {totalCardio?.slice(totalCardio.length - 3, totalCardio.length)?.map((workoutLog) =>
                         <SummaryLog
-                            key={workoutLog.id}
+                            key={workoutLog._id}
                             workoutLog={workoutLog}
-                            setTotalWorkouts={setTotalSupps}
+                            setTotalWorkouts={setTotalCardio}
                             type='cardio'
                         />
                     )}
@@ -78,9 +77,9 @@ const Summary = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column-reverse', marginTop: '40px' }}>
                     {totalSupps?.slice(totalSupps.length - 3, totalSupps.length)?.map((workoutLog) =>
                         <SummaryLog
-                            key={workoutLog.id}
+                            key={workoutLog._id}
                             workoutLog={workoutLog}
-                            setTotalWorkouts={setTotalCardio}
+                            setTotalWorkouts={setTotalSupps}
                             type='supplement'
                         />
                     )}

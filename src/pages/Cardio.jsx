@@ -17,12 +17,12 @@ const Cardio = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/cardio/', {
+            const response = await fetch('http://127.0.0.1:8000/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
-                }
+                    'x-access-token': authTokens,
+                },
             })
             const data = await response.json()
             setResponse(response)
@@ -50,7 +50,7 @@ const Cardio = () => {
                 <Box className={styles['cardio-log-container']}>
                     {totalCardio?.map((cardioLog) =>
                         <CardioLog
-                            key={cardioLog.id}
+                            key={cardioLog._id}
                             cardioLog={cardioLog}
                             setTotalCardio={setTotalCardio}
                         />

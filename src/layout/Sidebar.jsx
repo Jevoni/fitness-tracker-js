@@ -13,10 +13,10 @@ import MobileProfileButton from '../components/MobileProfileButton'
 import styles from './styles/Sidebar.module.css'
 
 const Sidebar = () => {
-    const { user } = useContext(AuthContext)
+    const { authTokens } = useContext(AuthContext)
 
     return (
-        <Box className={styles.sidebar} display={user ? 'flex' : 'none'}>
+        <Box className={styles.sidebar} display={authTokens ? 'flex' : 'none'}>
             <Box className={styles['button-container']}>
                 <SidebarButton icon={<MdOutlineSummarize size={30} />} text='Summary' value='summary' />
                 <SidebarButton icon={<CiDumbbell size={30} />} text='Weights' value='weights' />

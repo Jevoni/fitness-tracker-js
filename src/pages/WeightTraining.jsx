@@ -17,11 +17,11 @@ const WeightTraining = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+            const response = await fetch('http://127.0.0.1:8000/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
@@ -50,7 +50,7 @@ const WeightTraining = () => {
                 <Box className={styles['workout-log-container']}>
                     {totalWorkouts?.map((workoutLog) =>
                         <WorkoutLog
-                            key={workoutLog.id}
+                            key={workoutLog._id}
                             workoutLog={workoutLog}
                             setTotalWorkouts={setTotalWorkouts}
                         />

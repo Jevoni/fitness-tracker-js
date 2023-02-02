@@ -17,11 +17,11 @@ const Supplements = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/supplement/', {
+            const response = await fetch('http://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
@@ -50,7 +50,7 @@ const Supplements = () => {
                 <Box className={styles['supplements-log-container']}>
                     {totalSupplements?.map((supplementsLog) =>
                         <SupplementsLog
-                            key={supplementsLog.id}
+                            key={supplementsLog._id}
                             supplementsLog={supplementsLog}
                             setTotalSupplements={setTotalSupplements}
                         />

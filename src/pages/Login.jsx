@@ -35,6 +35,7 @@ const Login = () => {
                             autoComplete='current-password'
                             onChange={(e) => setPassword(e.target.value)}
                             className={`${styles['login-container']}input`} />
+                        <input type='hidden' name='_csrf' value="{{csrfToken}}"></input>
                         <Button variant='filled' className={`${styles['login-container']}button`} type="submit">Log In</Button>
                     </form>
                     <Typography className={`${styles['login-questions']}`}>Forgot Password?</Typography>

@@ -7,17 +7,17 @@ import styles from './styles/Supplements.module.css'
 
 const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
     const { authTokens } = useContext(AuthContext)
-    const [date, setDate] = useState(supplementsLog.date)
+    const [date, setDate] = useState(supplementsLog.date?.split('T')[0])
     const [dossage, setDossage] = useState(supplementsLog.dossage)
     const [supplement, setSupplement] = useState(supplementsLog.name)
     const [edit, setEdit] = useState(false)
 
     const deleteWorkout = async () => {
-        const response = await fetch(`http://127.0.0.1:8000/api/supplement/${supplementsLog.id}/`, {
+        const response = await fetch(`http://127.0.0.1:8000/supplement/${supplementsLog._id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
         })
 
@@ -26,11 +26,11 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/supplement/', {
+            const response = await fetch('http://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
@@ -40,11 +40,11 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
     }
 
     const editWorkout = async () => {
-        const response = await fetch(`http://127.0.0.1:8000/api/supplement/${supplementsLog.id}/`, {
+        const response = await fetch(`http://127.0.0.1:8000/supplement/${supplementsLog._id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
             body: JSON.stringify({
                 'date': date,
@@ -58,11 +58,11 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/supplement/', {
+            const response = await fetch('http://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()

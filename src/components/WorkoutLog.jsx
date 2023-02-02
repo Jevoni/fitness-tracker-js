@@ -7,7 +7,7 @@ import styles from './styles/Workout.module.css'
 
 const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     const { authTokens } = useContext(AuthContext)
-    const [date, setDate] = useState(workoutLog.date)
+    const [date, setDate] = useState(workoutLog.date?.split('T')[0])
     const [name, setName] = useState(workoutLog.name)
     const [reps, setReps] = useState(workoutLog.reps)
     const [sets, setSets] = useState(workoutLog.sets)
@@ -18,11 +18,11 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     // }, [])
 
     const deleteWorkout = async () => {
-        const response = await fetch(`http://127.0.0.1:8000/api/weight/${workoutLog.id}/`, {
+        const response = await fetch(`http://127.0.0.1:8000/weight/${workoutLog._id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
         })
 
@@ -31,11 +31,11 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+            const response = await fetch('http://127.0.0.1:8000/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
@@ -45,11 +45,11 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     }
 
     const editWorkout = async () => {
-        const response = await fetch(`http://127.0.0.1:8000/api/weight/${workoutLog.id}/`, {
+        const response = await fetch(`http://127.0.0.1:8000/weight/${workoutLog._id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
             body: JSON.stringify({
                 'date': date,
@@ -66,11 +66,11 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/weight/', {
+            const response = await fetch('http://127.0.0.1:8000/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
@@ -102,10 +102,10 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
             <BsThreeDotsVertical className={styles['vertical-button']} onClick={() => setEdit(true)} />
             <Button className={styles['button-edit']} onClick={() => setEdit(true)}>Edit</Button>
             <Box className={styles['content-container']}>
-                <Typography className={styles.date}><span>Date: </span><span>{workoutLog.date}</span></Typography>
-                <Typography><span>Workout: </span><span>{workoutLog.name}</span></Typography>
-                <Typography className={styles.numbers}>Reps: {workoutLog.reps}</Typography>
-                <Typography className={styles.numbers}>Sets: {workoutLog.sets}</Typography>
+                <Typography className={styles.date}><span>Date: </span><span>{date}</span></Typography>
+                <Typography><span>Workout: </span><span>{name}</span></Typography>
+                <Typography className={styles.numbers}>Reps: {reps}</Typography>
+                <Typography className={styles.numbers}>Sets: {sets}</Typography>
             </Box>
         </Box>
     )

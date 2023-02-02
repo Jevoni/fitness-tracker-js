@@ -13,16 +13,16 @@ const CardioInput = ({ setTotalCardio }) => {
     const onSubmitHandler = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://127.0.0.1:8000/api/cardio/', {
+        const response = await fetch('http://127.0.0.1:8000/cardio/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + String(authTokens?.access)
+                'x-access-token': authTokens,
             },
             body: JSON.stringify({
                 'date': date,
                 'name': name,
-                'duration': duration
+                'duration': duration,
             })
         })
 
@@ -33,11 +33,11 @@ const CardioInput = ({ setTotalCardio }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/api/cardio/', {
+            const response = await fetch('http://127.0.0.1:8000/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + String(authTokens?.access)
+                    'x-access-token': authTokens,
                 }
             })
             const data = await response.json()
