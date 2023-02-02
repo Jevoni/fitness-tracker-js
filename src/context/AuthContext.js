@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://localhost:8000/user/login/', {
+        const response = await fetch('http://http://127.0.0.1:8000/user/login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
