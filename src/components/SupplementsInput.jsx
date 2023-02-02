@@ -33,7 +33,7 @@ const SupplementsInput = ({ setTotalSupplements }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('https://127.0.0.1:8000/supplement/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

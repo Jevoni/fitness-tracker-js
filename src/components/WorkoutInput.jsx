@@ -35,7 +35,7 @@ const WorkoutInput = ({ setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('https://127.0.0.1:8000/weight/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
