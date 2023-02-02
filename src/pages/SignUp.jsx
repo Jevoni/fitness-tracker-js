@@ -19,7 +19,7 @@ const SignUp = () => {
         e.preventDefault()
 
         if (password === confirmPassword) {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/user/signup/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/user/signup/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

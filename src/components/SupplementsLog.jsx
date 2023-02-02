@@ -13,7 +13,7 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
     const [edit, setEdit] = useState(false)
 
     const deleteWorkout = async () => {
-        const response = await fetch(`http://fitness-tracker-j.herokuapp.com/supplement/${supplementsLog._id}/`, {
+        const response = await fetch(`https://fitness-tracker-j.herokuapp.com/supplement/${supplementsLog._id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/supplement/', {
+            const response = await fetch('https://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
     }
 
     const editWorkout = async () => {
-        const response = await fetch(`http://127.0.0.1:8000/supplement/${supplementsLog._id}/`, {
+        const response = await fetch(`https://127.0.0.1:8000/supplement/${supplementsLog._id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ const SupplementsLog = ({ supplementsLog, setTotalSupplements }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/supplement/', {
+            const response = await fetch('https://127.0.0.1:8000/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

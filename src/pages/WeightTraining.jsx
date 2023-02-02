@@ -17,7 +17,7 @@ const WeightTraining = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/weight/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

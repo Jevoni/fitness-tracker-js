@@ -17,7 +17,7 @@ const Cardio = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

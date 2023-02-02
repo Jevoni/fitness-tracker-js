@@ -23,7 +23,7 @@ const Profile = () => {
     const [edit, setEdit] = useState(null)
 
     const getProfileDetails = async () => {
-        const response = await fetch('http://fitness-tracker-j.herokuapp.com/user/profile/', {
+        const response = await fetch('https://fitness-tracker-j.herokuapp.com/user/profile/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

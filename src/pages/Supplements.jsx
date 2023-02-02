@@ -17,7 +17,7 @@ const Supplements = () => {
 
     useEffect(() => {
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/supplement/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://fitness-tracker-j.herokuapp.com/user/login/', {
+        const response = await fetch('https://fitness-tracker-j.herokuapp.com/user/login/', {
             method: 'POST',
             // mode: 'no-cors',
             headers: {

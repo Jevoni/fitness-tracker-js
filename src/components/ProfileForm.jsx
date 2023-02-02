@@ -16,7 +16,7 @@ const ProfileForm = ({ firstName, lastName, email, setEdit, getProfileDetails })
 
     const onSubmitHandler = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://fitness-tracker-j.herokuapp.com/user/profile/', {
+        const response = await fetch('https://fitness-tracker-j.herokuapp.com/user/profile/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

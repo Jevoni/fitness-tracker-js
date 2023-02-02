@@ -14,7 +14,7 @@ const CardioLog = ({ cardioLog, setTotalCardio }) => {
     const [edit, setEdit] = useState(false)
 
     const deleteWorkout = async () => {
-        const response = await fetch(`http://fitness-tracker-j.herokuapp.com/cardio/${cardioLog._id}/`, {
+        const response = await fetch(`https://fitness-tracker-j.herokuapp.com/cardio/${cardioLog._id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -27,7 +27,7 @@ const CardioLog = ({ cardioLog, setTotalCardio }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const CardioLog = ({ cardioLog, setTotalCardio }) => {
     }
 
     const editWorkout = async () => {
-        const response = await fetch(`http://fitness-tracker-j.herokuapp.com/cardio/${cardioLog._id}/`, {
+        const response = await fetch(`https://fitness-tracker-j.herokuapp.com/cardio/${cardioLog._id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ const CardioLog = ({ cardioLog, setTotalCardio }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

@@ -18,7 +18,7 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     // }, [])
 
     const deleteWorkout = async () => {
-        const response = await fetch(`http://fitness-tracker-j.herokuapp.com/weight/${workoutLog._id}/`, {
+        const response = await fetch(`https://fitness-tracker-j.herokuapp.com/weight/${workoutLog._id}/`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/weight/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     }
 
     const editWorkout = async () => {
-        const response = await fetch(`http://fitness-tracker-j.herokuapp.com/weight/${workoutLog._id}/`, {
+        const response = await fetch(`https://fitness-tracker-j.herokuapp.com/weight/${workoutLog._id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -66,7 +66,7 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://fitness-tracker-j.herokuapp.com/weight/', {
+            const response = await fetch('https://fitness-tracker-j.herokuapp.com/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
