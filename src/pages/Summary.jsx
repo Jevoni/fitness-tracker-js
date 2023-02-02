@@ -16,7 +16,7 @@ const Summary = () => {
 
     useEffect(() => {
         const getLogs = async () => {
-            const response = await fetch('http://127.0.0.1:8000/weight/', {
+            const response = await fetch('http://fitness-tracker-j.herokuapp.com/weight/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -26,7 +26,7 @@ const Summary = () => {
             const data = await response.json()
             setTotalWeight(data)
 
-            const response2 = await fetch('http://127.0.0.1:8000/cardio/', {
+            const response2 = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ const Summary = () => {
             const data2 = await response2.json()
             setTotalCardio(data2)
 
-            const response3 = await fetch('http://127.0.0.1:8000/supplement/', {
+            const response3 = await fetch('http://fitness-tracker-j.herokuapp.com/supplement/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

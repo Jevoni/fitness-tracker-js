@@ -13,7 +13,7 @@ const CardioInput = ({ setTotalCardio }) => {
     const onSubmitHandler = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('http://127.0.0.1:8000/cardio/', {
+        const response = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -33,7 +33,7 @@ const CardioInput = ({ setTotalCardio }) => {
         }
 
         const getLog = async () => {
-            const response = await fetch('http://127.0.0.1:8000/cardio/', {
+            const response = await fetch('http://fitness-tracker-j.herokuapp.com/cardio/', {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',

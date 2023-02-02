@@ -16,8 +16,9 @@ export const AuthProvider = ({ children }) => {
 
     const loginUser = async (e) => {
         e.preventDefault()
-        const response = await fetch('http://http://127.0.0.1:8000/user/login/', {
+        const response = await fetch('http://fitness-tracker-j.herokuapp.com/user/login/', {
             method: 'POST',
+            // mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -25,6 +26,7 @@ export const AuthProvider = ({ children }) => {
         })
 
         const data = await response.json()
+        console.log(data)
 
         if (response.status === 200) {
             setAuthTokens(data)
