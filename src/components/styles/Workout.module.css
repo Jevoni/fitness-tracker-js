@@ -64,19 +64,11 @@
     display: flex;
 }
 
-/* @media screen and (max-width:850px) {
-    .content-container p input {
-        width: 120px;
-    }
-} */
-
 @media screen and (min-width:683px) {
     .workout-log .vertical-button {
         display: none;
     }
 }
-
-@media screen and (max-width:500px) {}
 
 @media screen and (max-width:682px) {
     .workout-log {
@@ -129,10 +121,6 @@
         padding-right: 2px;
     }
 
-    /* .content-container.input .date {
-        width: 30%;
-    } */
-
     .content-container.input .numbers input {
         width: 100%;
     }
@@ -154,14 +142,4 @@
     .content-container p {
         font-size: 14px;
     }
-}
-
-@media screen and (max-width:900px) {
-    /* .content-container.input .numbers {
-        width: 50%;
-    } */
-
-    /* .content-container.input .numbers input {
-        width: 50%;
-    } */
 }

@@ -89,10 +89,6 @@
     background-color: lightcoral;
 }
 
-/* .signup-container button:hover {
-    background-color: #dbc3e4;
-} */
-
 .signup-container p {
     margin-top: 15px;
 }
@@ -109,5 +105,3 @@
     justify-content: space-between;
     width: 50%;
 }
-
-@media screen {}

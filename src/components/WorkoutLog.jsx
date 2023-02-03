@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { BsThreeDotsVertical } from 'react-icons/bs'
 import { Box, Typography, Button } from '@mui/material'
 import AuthContext from '../context/AuthContext'
@@ -12,10 +12,6 @@ const WorkoutLog = ({ workoutLog, setTotalWorkouts }) => {
     const [reps, setReps] = useState(workoutLog.reps)
     const [sets, setSets] = useState(workoutLog.sets)
     const [edit, setEdit] = useState(false)
-
-    // useEffect(() => {
-    //     console.log('Log')
-    // }, [])
 
     const deleteWorkout = async () => {
         const response = await fetch(`https://fitness-tracker-j.herokuapp.com/weight/${workoutLog._id}/`, {

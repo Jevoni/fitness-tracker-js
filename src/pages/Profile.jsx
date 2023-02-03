@@ -44,7 +44,6 @@ const Profile = () => {
         console.log('Profile (useEffect) main')
     }, [])
 
-
     if (!edit) {
         return (
             <Body>

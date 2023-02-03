@@ -1,6 +1,5 @@
-import { createContext, useState, useEffect, useRef } from "react";
+import { createContext, useState, useRef } from "react";
 import { useNavigate } from 'react-router-dom'
-import jwt_decode from 'jwt-decode'
 
 const AuthContext = createContext()
 
@@ -18,7 +17,6 @@ export const AuthProvider = ({ children }) => {
         e.preventDefault()
         const response = await fetch('https://fitness-tracker-j.herokuapp.com/user/login/', {
             method: 'POST',
-            // mode: 'no-cors',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -74,6 +72,7 @@ export const AuthProvider = ({ children }) => {
 
     const contextData = {
         authTokens: authTokenRef.current,
+        setAuthTokens: setAuthTokens,
         loginUser: loginUser,
         logoutUser: logoutUser
     }

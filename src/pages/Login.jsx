@@ -6,12 +6,12 @@ import AuthContext from '../context/AuthContext'
 import styles from './styles/Login.module.css'
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext)
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const { loginUser, setAuthTokens } = useContext(AuthContext)
+    const [email, setEmail] = useState('demo@fitnesstracker.com')
+    const [password, setPassword] = useState('123')
 
     useEffect(() => {
-        console.log('useEffect (Login)')
+        setAuthTokens(null)
     }, [])
 
     return (

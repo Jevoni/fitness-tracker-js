@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { Box, Typography, Button } from '@mui/material'
 import AuthContext from '../context/AuthContext'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import moment from 'moment'
 
 import styles from './styles/Cardio.module.css'
 

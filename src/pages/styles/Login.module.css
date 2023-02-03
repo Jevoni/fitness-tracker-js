@@ -7,9 +7,6 @@
 }
 
 .title {
-    /* position: absolute;
-    top: 20px;
-    left: 20px; */
     background-color: #9b59b6;
     padding: 15px;
     border-radius: 5px;
@@ -102,18 +99,6 @@
         min-height: 300px;
     }
 }
-
-/* @media screen and (max-width:900px) and (min-width:601px) {
-    .login-container {
-        width: 65%;
-    }
-}
-
-@media screen and (max-width:1200px) and (min-width: 901px) {
-    .login-container {
-        width: 75%;
-    }
-} */
 
 @media screen and (max-width:1536px) and (min-width: 1201px) {
     .login-container {

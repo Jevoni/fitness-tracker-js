@@ -1,7 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { Box, CssBaseline } from '@mui/material'
-import AuthContext from './context/AuthContext'
 
 import Header from './layout/Header'
 import Sidebar from './layout/Sidebar';
